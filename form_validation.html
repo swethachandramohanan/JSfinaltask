@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+    <script src="form_validation.js" defer></script>
+    <link href="./assests/style.css" rel="stylesheet">
+</head>
+<body>
+    <h2>Form Validation</h2>
+    <form id="validationForm">
+        <label for="email">Email:</label>
+        <input type="email" id="email"><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <p id="validationResult"></p>
+    <script>
+        document.getElementById("validationForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    
+    if (emailPattern.test(email) && passwordPattern.test(password)) {
+        document.getElementById("validationResult").innerHTML = "Validation successful!";
+    } else {
+        document.getElementById("validationResult").innerHTML = "Invalid email or password!";
+    }
+});
+
+    </script>
+</body>
+</html>

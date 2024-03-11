@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sum of Even Numbers</title>
+    <script src="sum_of_even_numbers.js" defer></script>
+    <link href="./assests/style.css" rel="stylesheet">
+</head>
+<body>
+    <h2>Sum of Even Numbers</h2>
+    <p>Enter numbers separated by commas:</p>
+    <input type="text" id="numbers">
+    <button onclick="calculateSum()">Calculate Sum</button>
+    <p id="result"></p>
+    <script>
+        function calculateSum() {
+    var numbers = document.getElementById("numbers").value.split(",").map(Number);
+    var sum = sumOfEvens(numbers);
+    document.getElementById("result").innerHTML = "Sum of Even Numbers: " + sum;
+}
+
+function sumOfEvens(arr) {
+    return arr.reduce((acc, curr) => curr % 2 === 0 ? acc + curr : acc, 0);
+}
+
+    </script>
+</body>
+</html>

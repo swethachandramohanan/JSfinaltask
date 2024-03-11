@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Day of the Week</title>
+    <script src="day_of_week.js" defer></script>
+    <link href="./assests/style.css" rel="stylesheet">
+</head>
+<body>
+    <h2>Day of the Week</h2>
+    <p>Enter a date in the format "YYYY-MM-DD":</p>
+    <input type="text" id="dateInput">
+    <button onclick="getDayOfWeek()">Get Day of Week</button>
+    <p id="result"></p>
+    <script>
+        function getDayOfWeek() {
+    var dateString = document.getElementById("dateInput").value;
+    var dayOfWeek = new Date(dateString).toLocaleDateString('en-US', { weekday: 'long' });
+    document.getElementById("result").innerHTML = "Day of the Week: " + dayOfWeek;
+}
+
+    </script>
+</body>
+</html>

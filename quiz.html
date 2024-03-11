@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <script src="quiz.js" defer></script>
+    <link href="./assests/style.css" rel="stylesheet">
+</head>
+<body>
+    <h1>Quiz</h1>
+    <div id="question"></div>
+    <div id="options"></div>
+    <script>
+        const questions = [
+    {
+        question: "What is the capital of France?",
+        options: ["Paris", "London", "Berlin", "Madrid"],
+        answer: "Paris"
+    },
+    {
+        question: "Which planet is known as the Red Planet?",
+        options: ["Venus", "Mars", "Jupiter", "Saturn"],
+        answer: "Mars"
+    },
+    {
+        question: "What is the powerhouse of the cell?",
+        options: ["Nucleus", "Mitochondria", "Ribosome", "Endoplasmic Reticulum"],
+        answer: "Mitochondria"
+    },
+    {
+        question: "What is the largest mammal?",
+        options: ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
+        answer: "Blue Whale"
+    },
+    {
+        question: "Who painted the Mona Lisa?",
+        options: ["Leonardo da Vinci", "Vincent van Gogh", "Pablo Picasso", "Michelangelo"],
+        answer: "Leonardo da Vinci"
+    },
+    {
+        question: "Which is the longest river in the world?",
+        options: ["Nile", "Amazon", "Yangtze", "Mississippi"],
+        answer: "Nile"
+    },
+    {
+        question: "What is the chemical symbol for water?",
+        options: ["W", "O", "H2O", "H"],
+        answer: "H2O"
+    }
+];
+
+let score = 0;
+
+function displayQuestion(index) {
+    const questionDiv = document.getElementById("question");
+    const optionsDiv = document.getElementById("options");
+
+    questionDiv.textContent = questions[index].question;
+    optionsDiv.innerHTML = "";
+
+    questions[index].options.forEach((option, i) => {
+        const button = document.createElement("button");
+        button.textContent = option;
+        button.addEventListener("click", function() {
+            checkAnswer(option, index);
+        });
+        optionsDiv.appendChild(button);
+    });
+}
+
+function checkAnswer(selectedAnswer, index) {
+    if (selectedAnswer === questions[index].answer) {
+        score++;
+        alert("Correct!");
+    } else {
+        alert("Incorrect!");
+    }
+
+    if (index < questions.length - 1) {
+        displayQuestion(index + 1);
+    } else {
+        showResult();
+    }
+}
+
+function showResult() {
+    alert(`Quiz completed! Your score: ${score}/${questions.length}`);
+}
+
+window.addEventListener("load", function() {
+    displayQuestion(0);
+});
+
+    </script>
+</body>
+</html>

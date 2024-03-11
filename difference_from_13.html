@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Difference from 13</title>
+    <script src="difference_from_13.js" defer></script>
+    <link href="./assests/style.css" rel="stylesheet">
+</head>
+<body>
+    <h2>Difference from 13</h2>
+    <p>Enter a number:</p>
+    <input type="number" id="number">
+    <button onclick="computeDifference()">Compute</button>
+    <p id="result"></p>
+    <script>
+        function computeDifference() {
+    var number = parseInt(document.getElementById("number").value);
+    var difference = Math.abs(number - 13);
+    if (number > 13) {
+        difference *= 2;
+    }
+    document.getElementById("result").innerHTML = "Difference: " + difference;
+}
+
+    </script>
+</body>
+</html>

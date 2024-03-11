@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Positive Negative Check</title>
+    <script src="positive_negative_check.js" defer></script>
+    <link href="./assests/style.css" rel="stylesheet">
+</head>
+<body>
+    <h2>Positive Negative Check</h2>
+    <p>Enter two integers:</p>
+    <input type="number" id="num1">
+    <input type="number" id="num2">
+    <button onclick="checkPositiveNegative()">Check</button>
+    <p id="result"></p>
+    <script>
+        function checkPositiveNegative() {
+    var num1 = parseInt(document.getElementById("num1").value);
+    var num2 = parseInt(document.getElementById("num2").value);
+    if ((num1 > 0 && num2 < 0) || (num1 < 0 && num2 > 0)) {
+        document.getElementById("result").innerHTML = "True";
+    } else {
+        document.getElementById("result").innerHTML = "False";
+    }
+}
+
+    </script>
+</body>
+</html>

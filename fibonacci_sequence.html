@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fibonacci Sequence</title>
+    <script src="fibonacci_sequence.js" defer></script>
+    <link href="./assests/style.css" rel="stylesheet">
+</head>
+<body>
+    <h2>Fibonacci Sequence</h2>
+    <p>Enter the number of terms:</p>
+    <input type="number" id="terms">
+    <button onclick="generateSequence()">Generate Sequence</button>
+    <p id="result"></p>
+    <script>
+        function generateSequence() {
+    var terms = parseInt(document.getElementById("terms").value);
+    var sequence = fibonacci(terms);
+    document.getElementById("result").innerHTML = "Fibonacci Sequence: " + sequence.join(", ");
+}
+
+function fibonacci(n) {
+    let sequence = [0, 1];
+    for (let i = 2; i < n; i++) {
+        sequence[i] = sequence[i - 1] + sequence[i - 2];
+    }
+    return sequence;
+}
+
+    </script>
+</body>
+</html>

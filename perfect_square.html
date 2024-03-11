@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Perfect Square Checker</title>
+    <script src="perfect_square.js" defer></script>
+    <link href="./assests/style.css" rel="stylesheet">
+</head>
+<body>
+    <h2>Perfect Square Checker</h2>
+    <p>Enter a number:</p>
+    <input type="number" id="number">
+    <button onclick="checkPerfectSquare()">Check</button>
+    <p id="result"></p>
+</body>
+<script>
+    function checkPerfectSquare() {
+    var number = parseInt(document.getElementById("number").value);
+    var squareRoot = Math.sqrt(number);
+    if (squareRoot === Math.floor(squareRoot)) {
+        document.getElementById("result").innerHTML = number + " is a perfect square.";
+    } else {
+        document.getElementById("result").innerHTML = number + " is not a perfect square.";
+    }
+}
+
+</script>
+</html>

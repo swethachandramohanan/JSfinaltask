@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Pair Check</title>
+    <script src="number_pair_check.js" defer></script>
+    <link href="./assests/style.css" rel="stylesheet">
+</head>
+<body>
+    <h2>Number Pair Check</h2>
+    <p>Enter two numbers:</p>
+    <input type="number" id="num1">
+    <input type="number" id="num2">
+    <button onclick="checkPair()">Check</button>
+    <p id="result"></p>
+    <script>
+        function checkPair() {
+    var num1 = parseInt(document.getElementById("num1").value);
+    var num2 = parseInt(document.getElementById("num2").value);
+    if (num1 === 50 || num2 === 50 || num1 + num2 === 50) {
+        document.getElementById("result").innerHTML = "True";
+    } else {
+        document.getElementById("result").innerHTML = "False";
+    }
+}
+
+    </script>
+</body>
+</html>
